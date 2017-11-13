@@ -13,6 +13,11 @@
     "start": "inferno-scripts start",
     "build": "inferno-scripts build",
     "test": "inferno-scripts test --env=jsdom",
-    "eject": "inferno-scripts eject"
+    "eject": "inferno-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "surge ./build -d https://enem.surge.sh"
+  },
+  "devDependencies": {
+    "surge": "^0.19.0"
   }
 }
