@@ -1,5 +1,7 @@
 import Component from 'inferno-component';
 import '../styles/Quiz.css';
+import 'purecss/build/grids-responsive-min.css';
+import 'purecss/build/buttons-min.css';
 
 export default class Quiz extends Component {
     checkAnswer({correct}) {
@@ -100,7 +102,11 @@ export default class Quiz extends Component {
                 <div className="pure-g">
                     {questions[i].alternatives.map(alt => 
                         <div className="pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1">
-                            <div className="Quiz-alternative" onClick={() => this.checkAnswer(alt)}>{alt.text}</div>
+                            <div
+                                className="Quiz-alternative"
+                                onClick={() => this.checkAnswer(alt)}>
+                                {alt.text}
+                            </div>
                         </div>
                     )}
                 </div>

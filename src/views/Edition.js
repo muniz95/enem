@@ -1,4 +1,7 @@
 import Component from 'inferno-component';
+import { Link } from 'inferno-router';
+import 'purecss/build/grids-responsive-min.css';
+import 'purecss/build/buttons-min.css';
 
 export default class Edition extends Component {
     constructor(props) {
@@ -22,10 +25,21 @@ export default class Edition extends Component {
         const { edition } = this.state;
         return (
             <div>
-                <h2>ENEM {edition.year}</h2>
+                <div className="pure-g">
+                    <div className="pure-u-1">
+                        <h2>ENEM {edition.year}</h2>
+                    </div>
+                </div>
                 <div className="pure-g">
                     <div className="pure-u-1">
                         <span>{`Data de aplicação: ${edition.applyDate.toLocaleString()}`}</span>
+                    </div>
+                </div>
+                <div className="pure-g">
+                    <div className="pure-u-1">
+                        <Link to={`${edition.year}/quiz`} className="pure-button pure-button-primary">
+                            Começar quiz
+                        </Link>
                     </div>
                 </div>
             </div>
