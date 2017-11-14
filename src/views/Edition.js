@@ -13,18 +13,7 @@ export default class Edition extends Component {
         this.setState({
             edition: {
                 year,
-                applyDate: new Date(year, 11, 11),
-                questions: [
-                    { 
-                        statement: 'Quanto é 2 + 2?',
-                        alternatives: [
-                            { text: '1', correct: false },
-                            { text: '2', correct: false },
-                            { text: '3', correct: false },
-                            { text: '4', correct: true }
-                        ]
-                    }
-                ]
+                applyDate: new Date(year, 11, 11)
             }
         })
     }
