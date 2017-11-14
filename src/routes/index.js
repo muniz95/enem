@@ -1,5 +1,6 @@
 import Base from '../Base';
 import Main from '../views/Main';
+import Edition from '../views/Edition';
 import { Router, Route, IndexRoute } from 'inferno-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
@@ -9,14 +10,12 @@ export default function Routes() {
     return (
         <Router history={ browserHistory }>
             <Route component={ Base }>
-                <IndexRoute component={ Main }/>
+                <IndexRoute component={ Main } />
+                <Route path="/edition/:year" component={ Edition } />
             </Route>
         </Router>
     );
 }
 
 /*
-<Route path="/about" component={ About }>
-    <Route path="/about/teammembers/:person" component={ TeamMember }/>
-</Route>
 */

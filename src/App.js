@@ -1,5 +1,4 @@
 import Component from 'inferno-component';
-import './registerServiceWorker';
 import './App.css';
 import Header from './components/Header';
 import Routes from './routes';

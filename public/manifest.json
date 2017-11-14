@@ -1,15 +1,40 @@
 {
-  "short_name": "Inferno App",
-  "name": "Create Inferno App Sample",
+  "short_name": "ENEM",
+  "name": "Quiz ENEM",
   "icons": [
+    {
+      "src": "img/128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "img/144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "img/192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "img/512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
     {
       "src": "favicon.ico",
       "sizes": "192x192",
       "type": "image/png"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#cccccc",
   "background_color": "#ffffff"
 }
