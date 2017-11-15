@@ -1,4 +1,5 @@
 import Component from 'inferno-component';
+import Result from '../components/Result';
 import '../styles/Quiz.css';
 import 'purecss/build/grids-responsive-min.css';
 import 'purecss/build/buttons-min.css';
@@ -18,8 +19,9 @@ export default class Quiz extends Component {
             });
         } else {
             alert('acabou o quiz');
-            alert(`${this.state.hits} acertos e ${this.state.misses} erros.`);
-            this.resetState();
+            this.setState({finished: true});
+            // alert(`${this.state.hits} acertos e ${this.state.misses} erros.`);
+            // this.resetState();
         }
     }
     
@@ -37,7 +39,8 @@ export default class Quiz extends Component {
             questions: [],
             hits: 0,
             misses: 0,
-            currentQuestion: 0
+            currentQuestion: 0,
+            finished: false
         };
         
         this.checkAnswer = this.checkAnswer.bind(this);
@@ -91,26 +94,32 @@ export default class Quiz extends Component {
     }
     
     render() {
-        const { questions, currentQuestion: i } = this.state;
-        return (
-            <div>
-                <div className="pure-g">
-                    <div className="pure-u-1">
-                        {`${questions[i].id}) ${questions[i].statement}`}
+        const { questions, currentQuestion: i, finished } = this.state;
+        let page;
+        if (finished) {
+            page = <Result questions={questions} />;
+        } else {
+            page = (
+                <div>
+                    <div className="pure-g">
+                        <div className="pure-u-1">
+                            {`${questions[i].id}) ${questions[i].statement}`}
+                        </div>
+                    </div>
+                    <div className="pure-g">
+                        {questions[i].alternatives.map(alt => 
+                            <div className="pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1">
+                                <div
+                                    className="Quiz-alternative"
+                                    onClick={() => this.checkAnswer(alt)}>
+                                    {alt.text}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
-                <div className="pure-g">
-                    {questions[i].alternatives.map(alt => 
-                        <div className="pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1">
-                            <div
-                                className="Quiz-alternative"
-                                onClick={() => this.checkAnswer(alt)}>
-                                {alt.text}
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </div>
-        );
+            );
+        }
+        return page;
     }
 }
