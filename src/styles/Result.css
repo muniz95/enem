@@ -1,0 +1,8 @@
+.correct {
+    color: green;
+}
+
+.incorrect {
+    text-decoration: line-through;
+    color: red;
+}

@@ -1,5 +1,13 @@
 .Quiz-alternative {
-    margin: 5px;
-    padding: 5px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 5%;
     background-color: #cccccc;
+}
+
+.div-alternative {
+    padding-left: 5px;
+    padding-right: 5px;
 }
