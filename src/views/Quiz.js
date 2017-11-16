@@ -5,13 +5,16 @@ import 'purecss/build/grids-responsive-min.css';
 import 'purecss/build/buttons-min.css';
 
 export default class Quiz extends Component {
-    checkAnswer({correct}) {
+    checkAnswer(answer) {
         const { questions, currentQuestion, hits, misses } = this.state;
-        if (correct) {
+        if (answer.correct) {
             this.setState({hits: hits + 1});
         } else {
             this.setState({misses: misses + 1});
         }
+        this.setState({
+            answers: [...this.state.answers, answer]
+        });
         
         if (currentQuestion + 1 < questions.length) {
             this.setState({
@@ -37,6 +40,7 @@ export default class Quiz extends Component {
         super(props);
         this.state = {
             questions: [],
+            answers: [],
             hits: 0,
             misses: 0,
             currentQuestion: 0,
@@ -94,10 +98,10 @@ export default class Quiz extends Component {
     }
     
     render() {
-        const { questions, currentQuestion: i, finished } = this.state;
+        const { questions, answers, currentQuestion: i, finished } = this.state;
         let page;
         if (finished) {
-            page = <Result questions={questions} />;
+            page = <Result questions={questions} answers={answers} />;
         } else {
             page = (
                 <div>
