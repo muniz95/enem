@@ -1,4 +1,5 @@
 import Component from 'inferno-component';
+import { Link } from 'inferno-router';
 import Result from '../components/Result';
 import '../styles/Quiz.css';
 import 'purecss/build/grids-responsive-min.css';
@@ -6,12 +7,7 @@ import 'purecss/build/buttons-min.css';
 
 export default class Quiz extends Component {
     checkAnswer(answer) {
-        const { questions, currentQuestion, hits, misses } = this.state;
-        if (answer.correct) {
-            this.setState({hits: hits + 1});
-        } else {
-            this.setState({misses: misses + 1});
-        }
+        const { questions, currentQuestion } = this.state;
         this.setState({
             answers: [...this.state.answers, answer]
         });
@@ -21,17 +17,12 @@ export default class Quiz extends Component {
                 currentQuestion: this.state.currentQuestion + 1
             });
         } else {
-            alert('acabou o quiz');
             this.setState({finished: true});
-            // alert(`${this.state.hits} acertos e ${this.state.misses} erros.`);
-            // this.resetState();
         }
     }
     
     resetState() {
         this.setState({
-            hits: 0,
-            misses: 0,
             currentQuestion: 0
         });
     }
@@ -41,17 +32,19 @@ export default class Quiz extends Component {
         this.state = {
             questions: [],
             answers: [],
-            hits: 0,
-            misses: 0,
             currentQuestion: 0,
-            finished: false
+            finished: false,
+            year: 0
         };
         
         this.checkAnswer = this.checkAnswer.bind(this);
+        this.resetState = this.resetState.bind(this);
     }
     
     componentWillMount() {
+        const { year } = this.props.params;
         this.setState({
+            year,
             questions: [
                 {
                     id: 1,
@@ -98,10 +91,24 @@ export default class Quiz extends Component {
     }
     
     render() {
-        const { questions, answers, currentQuestion: i, finished } = this.state;
+        const { questions, answers, currentQuestion: i, finished, year } = this.state;
         let page;
         if (finished) {
-            page = <Result questions={questions} answers={answers} />;
+            page = <div>
+                <Result questions={questions} answers={answers} />
+                <div className="pure-g">
+                  <div className="pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1-4">
+                    <Link to={`/edition/${year}`} className="pure-button back">
+                      Voltar
+                    </Link>
+                  </div>
+                  <div className="pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1-4">
+                    <button onClick={this.resetState} className="pure-button restart">
+                      Refazer
+                    </button>
+                  </div>
+                </div>
+              </div>;
         } else {
             page = (
                 <div>

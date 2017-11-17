@@ -33,8 +33,8 @@ export default class Main extends Component {
         return (
             <div className="pure-g">
                 { editions.map(edition => 
-                    <div className="pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2 pure-u-sm-1 div-edition">
-                        <Link to={`edition/${edition.year}`} className="pure-button pure-button-primary">{edition.year}</Link>
+                    <div className="pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2 pure-u-sm-1">
+                        <Link to={`edition/${edition.year}`} className="pure-button pure-button-primary edition">{edition.year}</Link>
                     </div>
                 ) }
             </div>

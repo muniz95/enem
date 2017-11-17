@@ -1,8 +1,27 @@
 .correct {
     color: green;
+    display: inline-block;
 }
 
 .incorrect {
     text-decoration: line-through;
     color: red;
+    display: inline-block;
+}
+
+.back,
+.restart {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.back {
+    background: rgb(28, 109, 184);
+    /* this is a green */
+}
+
+.restart {
+    background: rgb(168, 184, 28);
+    /* this is a green */
 }
