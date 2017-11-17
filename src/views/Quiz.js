@@ -23,7 +23,9 @@ export default class Quiz extends Component {
     
     resetState() {
         this.setState({
-            currentQuestion: 0
+            currentQuestion: 0,
+            answers: [],
+            finished: false
         });
     }
     
