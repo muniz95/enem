@@ -7,17 +7,16 @@ import createBrowserHistory from 'history/createBrowserHistory';
 
 const browserHistory = createBrowserHistory();
 
-export default function Routes() {
-    return (
-        <Router history={ browserHistory }>
-            <Route component={ Base }>
-                <IndexRoute component={ Main } />
-                <Route path="/edition/:year" component={ Edition } />
-                <Route path="/edition/:year/quiz" component={ Quiz } />
-            </Route>
-        </Router>
-    );
-}
+const Routes = () => (
+    <Router history={ browserHistory }>
+        <Route component={ Base }>
+            <IndexRoute component={ Main } />
+            <Route path="/edition/:year" component={ Edition } />
+            <Route path="/edition/:year/quiz" component={ Quiz } />
+        </Route>
+    </Router>
+);
 
+export default Routes;
 /*
 */

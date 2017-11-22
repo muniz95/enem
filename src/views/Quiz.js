@@ -6,19 +6,24 @@ import 'purecss/build/grids-responsive-min.css';
 import 'purecss/build/buttons-min.css';
 
 export default class Quiz extends Component {
-    checkAnswer(answer) {
+    checkAnswer(e, answer) {
+        console.log(e.target.style);
+        e.target.style.backgroundColor = '#32fdf4';
         const { questions, currentQuestion } = this.state;
         this.setState({
             answers: [...this.state.answers, answer]
         });
         
-        if (currentQuestion + 1 < questions.length) {
-            this.setState({
-                currentQuestion: this.state.currentQuestion + 1
-            });
-        } else {
-            this.setState({finished: true});
-        }
+        setTimeout(() => {
+            if (currentQuestion + 1 < questions.length) {
+                this.setState({
+                    currentQuestion: this.state.currentQuestion + 1
+                });
+            } else {
+                this.setState({finished: true});
+            }
+            e.target.style.backgroundColor = '';
+        }, 250);
     }
     
     resetState() {
@@ -116,7 +121,7 @@ export default class Quiz extends Component {
                 <div>
                     <div className="pure-g">
                         <div className="pure-u-1">
-                            {`${questions[i].id}) ${questions[i].statement}`}
+                            <h3>{`${questions[i].id}) ${questions[i].statement}`}</h3>
                         </div>
                     </div>
                     <div className="pure-g">
@@ -124,7 +129,7 @@ export default class Quiz extends Component {
                             <div className="pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1">
                                 <div
                                     className="Quiz-alternative"
-                                    onClick={() => this.checkAnswer(alt)}>
+                                    onClick={(e) => this.checkAnswer(e, alt)}>
                                     {alt.text}
                                 </div>
                             </div>
