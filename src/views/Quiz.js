@@ -2,8 +2,8 @@ import Component from 'inferno-component';
 import { Link } from 'inferno-router';
 import Result from '../components/Result';
 import '../styles/Quiz.css';
-import 'purecss/build/grids-responsive-min.css';
-import 'purecss/build/buttons-min.css';
+// import 'purecss/build/grids-responsive-min.css';
+// import 'purecss/build/buttons-min.css';
 
 export default class Quiz extends Component {
     checkAnswer(e, answer) {

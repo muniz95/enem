@@ -1,8 +1,8 @@
 import Component from 'inferno-component';
 import { Link } from 'inferno-router';
 import '../styles/Edition.css';
-import 'purecss/build/grids-responsive-min.css';
-import 'purecss/build/buttons-min.css';
+// import 'purecss/build/grids-responsive-min.css';
+// import 'purecss/build/buttons-min.css';
 
 export default class Edition extends Component {
     constructor(props) {

@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bulma": "^0.6.1",
     "inferno": "^3.10.1",
     "inferno-component": "^3.10.1",
     "inferno-router": "^3.10.1",
-    "inferno-scripts": "5.0.0",
-    "purecss": "^1.0.0"
+    "inferno-scripts": "5.0.0"
   },
   "scripts": {
     "start": "inferno-scripts start",

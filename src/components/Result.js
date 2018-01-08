@@ -1,5 +1,5 @@
 import '../styles/Result.css';
-import "purecss/build/grids-responsive-min.css";
+// import "purecss/build/grids-responsive-min.css";
 
 const Result = ({questions, answers}) => (
     <div>
