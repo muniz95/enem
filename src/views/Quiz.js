@@ -2,8 +2,6 @@ import Component from 'inferno-component';
 import { Link } from 'inferno-router';
 import Result from '../components/Result';
 import '../styles/Quiz.css';
-// import 'purecss/build/grids-responsive-min.css';
-// import 'purecss/build/buttons-min.css';
 
 export default class Quiz extends Component {
     checkAnswer(e, answer) {
@@ -103,14 +101,14 @@ export default class Quiz extends Component {
         if (finished) {
             page = <div>
                 <Result questions={questions} answers={answers} />
-                <div className="pure-g">
-                  <div className="pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1-4">
-                    <Link to={`/edition/${year}`} className="pure-button back">
+                <div className="columns">
+                  <div className="column is-half-tablet is-half-desktop">
+                    <Link to={`/edition/${year}`} className="button is-primary">
                       Voltar
                     </Link>
                   </div>
-                  <div className="pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1-4">
-                    <button onClick={this.resetState} className="pure-button restart">
+                  <div className="column is-half-tablet is-half-desktop">
+                    <button onClick={this.resetState} className="button is-warning">
                       Refazer
                     </button>
                   </div>
@@ -119,14 +117,14 @@ export default class Quiz extends Component {
         } else {
             page = (
                 <div>
-                    <div className="pure-g">
-                        <div className="pure-u-1">
+                    <div className="columns">
+                        <div className="column">
                             <h3>{`${questions[i].id}) ${questions[i].statement}`}</h3>
                         </div>
                     </div>
-                    <div className="pure-g">
+                    <div className="columns is-multiline">
                         {questions[i].alternatives.map(alt => 
-                            <div className="pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1">
+                            <div className="column is-6-desktop">
                                 <div
                                     className="Quiz-alternative"
                                     onClick={(e) => this.checkAnswer(e, alt)}>

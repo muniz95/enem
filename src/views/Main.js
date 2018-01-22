@@ -1,8 +1,6 @@
 import Component from 'inferno-component';
 import { Link } from 'inferno-router';
 import '../styles/Main.css';
-// // import 'purecss/build/grids-min.css';
-// // import 'purecss/build/grids-responsive-min.css';
 
 export default class Main extends Component {
     constructor(props) {
@@ -31,10 +29,10 @@ export default class Main extends Component {
     render() {
         const { editions } = this.state;
         return (
-            <div className="columns is-mobile">
+            <div className="columns is-mobile is-multiline">
                 { editions.map(edition => 
-                    <div className="column">
-                        <Link to={`edition/${edition.year}`} className="bd-notification is-info">{edition.year}</Link>
+                    <div className="column is-one-quarter-desktop is-half-mobile is-half-tablet">
+                        <Link to={`edition/${edition.year}`} className="button is-info">{edition.year}</Link>
                     </div>
                 ) }
             </div>
