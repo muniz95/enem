@@ -1,4 +1,4 @@
-import Component from 'inferno-component';
+import { Component } from 'inferno';
 import { Link } from 'inferno-router';
 import '../styles/Edition.css';
 
@@ -11,7 +11,7 @@ export default class Edition extends Component {
     }
     
     componentWillMount () {
-        const { year } = this.props.params;
+        const { year } = this.props.match.params;
         this.setState({
             edition: {
                 year,
