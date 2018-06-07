@@ -47,7 +47,7 @@ export default class Quiz extends Component {
     }
     
     componentWillMount() {
-        const { year } = this.props.params;
+        const { year } = this.props.match.params;
         this.setState({
             year,
             questions: [

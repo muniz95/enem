@@ -11,7 +11,7 @@ export default class Edition extends Component {
     }
     
     componentWillMount () {
-        const { year } = this.props.params;
+        const { year } = this.props.match.params;
         this.setState({
             edition: {
                 year,
