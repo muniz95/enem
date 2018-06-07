@@ -4,10 +4,10 @@
   "private": true,
   "dependencies": {
     "bulma": "^0.6.1",
-    "inferno": "^3.10.1",
-    "inferno-component": "^3.10.1",
-    "inferno-router": "^3.10.1",
-    "inferno-scripts": "5.0.0"
+    "inferno": "^5.0.6",
+    "inferno-component": "^5.0.6",
+    "inferno-router": "^5.0.6",
+    "inferno-scripts": "^6.3.0"
   },
   "scripts": {
     "start": "inferno-scripts start",

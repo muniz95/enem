@@ -1,4 +1,4 @@
-import Component from 'inferno-component';
+import { Component } from 'inferno';
 import { Link } from 'inferno-router';
 import '../styles/Edition.css';
 
