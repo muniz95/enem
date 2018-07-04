@@ -1,6 +1,12 @@
-.App-header {
-  background-color: #cccccc;
-  height: 50px;
-  padding: 20px;
-  color: #3d464d;
+nav {
+  height: 15%;
+  background-color: #006CB7;
+}
+
+.brand > a {
+  color: white;
+}
+
+.brand > a:visited {
+  color: orange;
 }
