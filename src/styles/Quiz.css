@@ -1,4 +1,4 @@
-.Quiz-alternative {
+.quiz-alternative {
     margin-bottom: 5%;
     margin-top: 5%;
     margin-left: 10%;
@@ -10,4 +10,8 @@
 .div-alternative {
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.box-alternatives {
+  width: 100%;
 }

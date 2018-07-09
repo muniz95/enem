@@ -99,7 +99,7 @@ export default class Quiz extends Component {
     const { questions, answers, currentQuestion: i, finished, year } = this.state;
     let page;
     if (finished) {
-      page = <div>
+      page = <div className="container column">
         <Result questions={questions} answers={answers} />
         <div className="columns">
           <div className="column is-half-tablet is-half-desktop">
@@ -115,26 +115,20 @@ export default class Quiz extends Component {
         </div>
       </div>;
     } else {
-      page = (
-        <div>
-          <div className="columns">
-            <div className="column">
-              <h3>{`${questions[i].id}) ${questions[i].statement}`}</h3>
-            </div>
-          </div>
-          <div className="columns is-multiline">
-            {questions[i].alternatives.map(alt => 
-              <div className="column is-6-desktop">
-                <div
-                  className="Quiz-alternative"
-                  onClick={(e) => this.checkAnswer(e, alt)}>
-                  {alt.text}
-                </div>
-              </div>
-            )}
-          </div>
+      page = <div className="container column">
+        <div className="title">
+          <h3>{`${questions[i].id}) ${questions[i].statement}`}</h3>
         </div>
-      );
+        <div className="box-alternatives">
+          {questions[i].alternatives.map(alt => 
+            <div
+              className="quiz-alternative"
+              onClick={(e) => this.checkAnswer(e, alt)}>
+              {alt.text}
+            </div>
+          )}
+        </div>
+      </div>;
     }
     return page;
   }

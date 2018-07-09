@@ -23,24 +23,12 @@ export default class Edition extends Component {
   render () {
     const { edition } = this.state;
     return (
-      <div>
-        <div className="columns">
-          <div className="column">
-            <h2>ENEM {edition.year}</h2>
-          </div>
-        </div>
-        <div className="columns">
-          <div className="column">
-            <span>{`Data de aplicação: ${edition.applyDate.toLocaleString()}`}</span>
-          </div>
-        </div>
-        <div className="columns">
-          <div className="column div-edition">
-            <Link to={`${edition.year}/quiz`} className="button is-primary">
-              Começar quiz
-            </Link>
-          </div>
-        </div>
+      <div className="container column">
+        <h2>ENEM {edition.year}</h2>
+        <span>{`Data de aplicação: ${edition.applyDate.toLocaleString()}`}</span>
+        <Link to={`${edition.year}/quiz`} className="btn-primary">
+          Começar quiz
+        </Link>
       </div>
     );
   }

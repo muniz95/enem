@@ -29,7 +29,7 @@ export default class Main extends Component {
   render() {
     const { editions } = this.state;
     return (
-      <div className="btn-container">
+      <div className="container">
         { editions.map(edition => 
           <div className="btn-edition">
             <Link to={`edition/${edition.year}`} className="btn-box">
