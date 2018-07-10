@@ -121,10 +121,12 @@ export default class Quiz extends Component {
         </div>
         <div className="box-alternatives">
           {questions[i].alternatives.map(alt => 
-            <div
-              className="quiz-alternative"
-              onClick={(e) => this.checkAnswer(e, alt)}>
-              {alt.text}
+            <div className="quiz-box">
+              <div 
+                className="quiz-alternative"
+                onClick={(e) => this.checkAnswer(e, alt)}>
+                {alt.text}
+              </div>
             </div>
           )}
         </div>
