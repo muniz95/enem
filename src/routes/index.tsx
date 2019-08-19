@@ -1,20 +1,27 @@
-import { BrowserRouter, Route, Switch } from 'inferno-router';
+import Main from '../views/Main';
 import Header from '../components/Header';
 import Edition from '../views/Edition';
-import Main from '../views/Main';
 import Quiz from '../views/Quiz';
+import { BrowserRouter, Route, Switch } from 'inferno-router';
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const browserHistory = createBrowserHistory();
 
 const Routes = () => (
-  <BrowserRouter>
-    <div>
-      <Header />
-      <Switch>
-        <Route path="/edition/:year/quiz" component={Quiz} />
-        <Route path="/edition/:year" component={Edition} />
-        <Route path="/" exact component={Main} />
-      </Switch>
-    </div>
-  </BrowserRouter>
+    <BrowserRouter history={ browserHistory }>
+        <div>
+            <Header />
+            <Switch>
+                <Route path="/edition/:year/quiz" component={ Quiz } />
+                <Route path="/edition/:year" component={ Edition } />
+                <Route path="/" exact component={ Main } />
+            </Switch>
+        </div>
+        {/* <Route component={ Base }>
+        </Route> */}
+    </BrowserRouter>
 );
 
 export default Routes;
+/*
+*/
